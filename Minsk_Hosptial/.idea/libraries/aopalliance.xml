@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="aopalliance">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../Tool/repository/aopalliance" />
+      <root url="file://$PROJECT_DIR$/../../Tool/repository/com" />
+      <root url="file://$PROJECT_DIR$/../../Tool/repository/javax" />
+      <root url="file://$PROJECT_DIR$/../../Tool/repository/org" />
+      <root url="file://$PROJECT_DIR$/../../Tool/repository/mysql" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/../../Tool/repository/aopalliance" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../Tool/repository/com" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../Tool/repository/javax" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../Tool/repository/mysql" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../Tool/repository/org" recursive="false" />
+  </library>
+</component>

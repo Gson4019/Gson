@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First page</title>
+    <style>
+        #getNum{
+            height: 320px;
+            width: 260px;
+            padding:8px;
+            background-color: #428bca;
+            border-color: #357ebd;
+            color: #fff;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px; /* future proofing */
+            -khtml-border-radius: 10px; /* for old Konqueror browsers */
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid transparent;
+            font-weight: 900;
+            font-size:125%;
+        }
+        #read{
+            height: 320px;
+            width: 260px;
+            padding:8px;
+            background-color: #428bca;
+            border-color: #357ebd;
+            color: #fff;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px; /* future proofing */
+            -khtml-border-radius: 10px; /* for old Konqueror browsers */
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid transparent;
+            font-weight: 900;
+            font-size:125%;
+        }
+        #Queue{
+            height: 320px;
+            width: 260px;
+            padding:8px;
+            background-color: #428bca;
+            border-color: #357ebd;
+            color: #fff;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px; /* future proofing */
+            -khtml-border-radius: 10px; /* for old Konqueror browsers */
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid transparent;
+            font-weight: 900;
+            font-size:125%;
+        }
+        #pane{
+            padding:16px;
+            border:1px solid lightgray;
+            height:450px;
+            width: 800px;
+            margin-left:320px;
+            margin-top: 100px;
+        }
+        #bg{
+            position: absolute;
+            background: url("images/start/1.jpg") no-repeat;
+            background-size: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body id="bg">
+<form id="pane">
+    <h1 align="center">Welcome to Quick Hosptial</h1>
+    <input type="button" value="Queue number" id="getNum" onclick="GetTicket()" style="font-size: 30px">
+    <input type="button" value="Lobby Screen" id="Queue" onclick="QueueList()" style="font-size: 30px">
+    <input type="button" value="Doctor login" id="read" onclick="DoctorLogin()" style="font-size: 30px">
+</form>
+</body>
+
+<script>
+    var GetTicket = function () {
+        window.location.href="id_input.html";
+    }
+    var DoctorLogin = function () {
+        window.location.href="login.html";
+    }
+    var QueueList = function () {
+        window.location.href="LobbyScreen.html";
+    }
+</script>
+</html>

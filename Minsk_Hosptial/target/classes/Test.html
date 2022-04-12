@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table class="layui-table" id="alertTable" style="margin: 0 auto; width: 100%;">
+    <thead>
+    <tr>
+        <th>日期</th>
+        <th>经度</th>
+        <th>纬度</th>
+        <th>距离</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    <tr id="alertChart">
+        <td>
+            <input type="hidden" value="92" />  2017-06-01  </td>
+        <td>110.23568</td>
+        <td>125.23564</td>
+        <td type="button" id="btn" onclick="Test(this)" style="background-color: #d72238;width: 76px;height: 36px;color: #FFFFFF">25.2m</td>
+    </tr>
+    </tbody>
+</table>
+
+<!--<button id="btn" value="Test" onclick="Test()" style="background-color: #d72238;width: 76px;height: 36px;color: #FFFFFF"></button>-->
+
+<script type="text/javascript" src="lib/jquery/3.4.1/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    function Test(obj){
+        // alert( $("#alertChart").children('td').eq(1).val() ) ;
+        alert( $(obj).parent('tr').children('td').eq(1).html())
+         }
+
+    $ (function () {
+        alert($(tbody).children('tr').children('td').eq(1).html())
+         })
+</script>
+</body>
+</html>

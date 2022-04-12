@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.PatientDao">
+    <select id="queryPatientByQueueNum" resultType="entity.Patient">
+        select * from patient where queuenum = #{queuenum}
+    </select>
+
+<!--useGeneratedKeys="true" keyProperty="Pno"表示插入该数据之后,mysql中对应这条数据的自增的主键值会被获取并赋值给当前这个patient对象中(也就是调用了patient.setPno(value))-->
+    <insert id="insertPatient" useGeneratedKeys="true" keyProperty="Pno">
+        insert into patient(Pname,Psex,Page,Pkind) values (#{Pname},#{Psex},#{Page},#{Pkind})
+    </insert>
+
+    <update id="addRoomName">
+        update patient set roomname = #{RoomName} where pno = #{Pno}
+    </update>
+
+    <update id="addQueueNum">
+        update patient set queuenum = #{QueueNum} where pno = #{Pno}
+    </update>
+
+    <!--此处#{Rname},#{QueueNum},#{Pname},#{Pno},#{Pkind}分别调用了Patient_Ticket实体类中的getRname()等方法,由于该实体类中属性不包含这些属性，所以要自己去定义get方法-->
+    <insert id="insertTicket" useGeneratedKeys="true" keyProperty="Tno">
+        insert into patient_ticket(rname,queuenum,pname,pno,pkind,psex) values (#{Rname},#{QueueNum},#{Pname},#{Pno},#{Pkind},#{Psex})
+    </insert>
+
+    <select id="queryPatients" resultType="entity.Patient">
+        select *  from patient where status = "Calling" or status = "Waiting"
+    </select>
+
+    <select id="QueryMaxQueueNum" resultType="java.lang.Integer">
+         SELECT IFNULL(MAX(queuenum),0) FROM patient
+    </select>
+
+    <delete id="DeletePatientByQueueNum">
+        delete from patient where queuenum = #{QueueNum}
+    </delete>
+
+    <delete id="DeleteTicketByQueueNum">
+        delete from patient_ticket where queuenum = #{QueueNum}
+    </delete>
+
+    <update id="UpdateStatusToCall">
+        update patient set status = "Calling" where queuenum =  #{QueueNum}
+    </update>
+
+    <update id="UpdateStatusToPass">
+        update patient set status = "Passed" where queuenum =  #{QueueNum}
+    </update>
+
+    <update id="add_Picture_Description">
+        update patient set picture = #{picture},description = #{description} where pno = #{pno}
+    </update>
+
+    <select id="get_PictureByQueueNum" resultType="java.lang.String">
+        select picture from patient where queuenum = #{queuenum}
+    </select>
+
+    <select id="get_DescriptionByQueueNum" resultType="java.lang.String">
+        select description from patient where queuenum = #{queuenum}
+    </select>
+
+    <update id="add_diagnosis_text_medicine_text">
+        update patient set diagnosis_text = #{diagnosis_text},medicine_text = #{medicine_text} where queuenum = #{QueueNum}
+    </update>
+
+</mapper>

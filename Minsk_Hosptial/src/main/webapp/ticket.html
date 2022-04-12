@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ticket</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="files/ticket/styles.css" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" src="lib/jquery/3.4.1/jquery-3.4.1.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        //在页面加载后立马执行ajax请求，提前获取ticket数据
+        getTicket();
+      })
+
+      function getTicket() {
+        $.ajax({
+          url:"queryTicketAndSetQueueNum.do",
+          dataType:"json",
+          success:function (resp) {
+            //服务端返回的所有属性字段都是小写的
+            //注意,用正则表达式给input标签赋值时调用attr()，给div赋值用html()
+            $("#u36_input").attr("value",resp.pname);
+            $("#u37_input").attr("value",resp.psex);
+            $("#u38_input").attr("value",resp.pkind);
+            $("#u42_input").attr("value",resp.rname);
+            $("#u46_text").html(resp.queueNum);
+          }
+        })
+      }
+
+      var pay = function () {
+        window.location.href="AliPay.html";
+      }
+
+      var back = function () {
+        window.location.href="roomchoice.html";
+      }
+
+      var decript = function () {
+        window.location.href="description.html";
+      }
+
+    </script>
+  </head>
+  <body>
+    <div id="base" class="">
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u33" class="ax_default box_1">
+        <img id="u33_img" class="img " src="images/ticket/u33.png"/>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u34" class="ax_default heading_1">
+        <img id="u34_img" class="img " src="images/ticket/u34.png"/>
+        <div id="u34_text" class="text ">
+          <p><span>Registration Silp</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Text Field) -->
+      <div id="u35" class="ax_default text_field">
+        <img id="u35_image_sketch" class="img " src="images/ticket/u35_image_sketch.png" alt="u35_image_sketch"/>
+        <input id="u35_input" type="text" class="form_sketch" disabled/>
+      </div>
+
+      <!-- Name value (Text Field) -->
+      <div id="u36" class="ax_default text_field">
+        <img id="u36_image_sketch" class="img " src="images/ticket/u36_image_sketch.png" alt="u36_image_sketch"/>
+        <input id="u36_input" type="text" class="form_sketch" disabled/>
+      </div>
+
+      <!-- Gender value (Text Field) -->
+      <div id="u37" class="ax_default text_field">
+        <img id="u37_image_sketch" class="img " src="images/ticket/u36_image_sketch.png" alt="u37_image_sketch"/>
+        <input id="u37_input" type="text" class="form_sketch" disabled/>
+      </div>
+
+      <!-- Type value (Text Field) -->
+      <div id="u38" class="ax_default text_field">
+        <img id="u38_image_sketch" class="img " src="images/ticket/u36_image_sketch.png" alt="u38_image_sketch"/>
+        <input id="u38_input" type="text" class="form_sketch" disabled/>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u39" class="ax_default label">
+        <img id="u39_img" class="img " src="images/ticket/u39.png"/>
+        <div id="u39_text" class="text ">
+          <p><span>Name：</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u40" class="ax_default label">
+        <img id="u40_img" class="img " src="images/ticket/u40.png"/>
+        <div id="u40_text" class="text ">
+          <p><span>Gender：</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u41" class="ax_default label">
+        <img id="u41_img" class="img " src="images/ticket/u41.png"/>
+        <div id="u41_text" class="text ">
+          <p><span>Type：</span></p>
+        </div>
+      </div>
+
+      <!-- Department value (Text Field) -->
+      <div id="u42" class="ax_default text_field">
+        <img id="u42_image_sketch" class="img " src="images/ticket/u36_image_sketch.png" alt="u42_image_sketch"/>
+        <input id="u42_input" type="text" class="form_sketch" disabled/>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u43" class="ax_default label">
+        <img id="u43_img" class="img " src="images/ticket/u43.png"/>
+        <div id="u43_text" class="text">
+          <p><span>Department：</span></p>
+        </div>
+      </div>
+
+      <!-- Print (Rectangle) -->
+      <div id="u44" class="ax_default button" onclick="pay()">
+        <img id="u44_img" class="img " src="images/ticket/u44.png"/>
+        <div id="u44_text" class="text ">
+          <p><span>Pay for Print</span></p>
+        </div>
+      </div>
+
+      <!-- Condition Description (Rectangle) -->
+      <div id="u48" class="ax_default button" onclick="decript()">
+        <img id="u48_img" class="img " src="images/ticket/u44.png"/>
+        <div id="u48_text" class="text ">
+          <p><span>Condition Description</span></p>
+        </div>
+      </div>
+
+      <!-- Queue Number (Rectangle) -->
+      <div id="u45" class="ax_default label">
+        <img id="u45_img" class="img " src="images/ticket/u45.png"/>
+        <div id="u45_text" class="text " disabled>
+          <p><span>Queue number</span></p>
+        </div>
+      </div>
+
+      <!-- Queue Number value (Rectangle) -->
+      <div id="u46" class="ax_default heading_1">
+        <img id="u46_img" class="img " src="images/ticket/u46.png"/>
+        <div id="u46_text" class="text" disabled></div>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u47" class="ax_default icon" onclick="back()">
+        <img id="u47_img" class="img " src="images/roomchoice/u16.png"/>
+      </div>
+    </div>
+  </body>
+</html>

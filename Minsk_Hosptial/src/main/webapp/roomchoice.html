@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>RoomChoice</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
+  <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+  <link href="data/styles.css" type="text/css" rel="stylesheet"/>
+  <link href="files/roomchoice/styles.css" type="text/css" rel="stylesheet"/>
+
+</head>
+<body>
+<div id="base" class="">
+
+  <!-- Unnamed (Rectangle) -->
+  <div id="u0" class="ax_default box_1">
+    <img id="u0_img" class="img " src="images/roomchoice/u0.png"/>
+  </div>
+
+  <!-- Unnamed (Rectangle) -->
+  <div id="u1" class="ax_default heading_2">
+    <img id="u1_img" class="img " src="images/roomchoice/u1.png"/>
+    <div id="u1_text" class="text ">
+      <p><span>Choose Department</span></p>
+    </div>
+  </div>
+
+  <!-- Unnamed (List Box) -->
+  <div id="u2" class="ax_default list_box">
+    <img id="u2_image_sketch" class="img " src="images/roomchoice/u2_image_sketch.png" alt="u2_image_sketch"/>
+    <select id="u2_input" size="2" class="form_sketch">
+    </select>
+  </div>
+
+  <!-- Unnamed (Table) -->
+  <div id="u3" class="ax_default">
+
+    <!-- Unnamed (Table Cell) -->
+    <div id="u4" class="ax_default table_cell">
+      <img id="u4_img" class="img " src="images/roomchoice/u4.png"/>
+      <div id="u4_text" class="text " onclick="Ajax(this)">Ear,nose,throat</div>
+    </div>
+
+    <!-- Unnamed (Table Cell) -->
+    <div id="u5" class="ax_default table_cell">
+      <img id="u5_img" class="img " src="images/roomchoice/u5.png"/>
+      <div id="u5_text" class="text "  onclick="Ajax(this)">Skin</div>
+    </div>
+
+    <!-- Unnamed (Table Cell) -->
+    <div id="u6" class="ax_default table_cell" >
+      <img id="u6_img" class="img " src="images/roomchoice/u6.png"/>
+      <div id="u6_text" class="text "  onclick="Ajax(this)">Oncology</div>
+    </div>
+
+    <!-- Unnamed (Table Cell) -->
+    <div id="u7" class="ax_default table_cell">
+      <img id="u7_img" class="img " src="images/roomchoice/u6.png"/>
+      <div id="u7_text" class="text "  onclick="Ajax(this)">Gynaecology</div>
+    </div>
+
+    <!-- Unnamed (Table Cell) -->
+    <div id="u8" class="ax_default table_cell" >
+      <img id="u8_img" class="img " src="images/roomchoice/u6.png"/>
+      <div id="u8_text" class="text "  onclick="Ajax(this)">Surgery</div>
+    </div>
+
+    <!-- Unnamed (Table Cell) -->
+    <div id="u9" class="ax_default table_cell">
+      <img id="u9_img" class="img " src="images/roomchoice/u9.png"/>
+      <div id="u9_text" class="text "  onclick="Ajax(this)">Internal medicine</div>
+    </div>
+  </div>
+
+  <!-- Unnamed (Shape) -->
+  <div id="u10" class="ax_default arrow">
+    <img id="u10_img" class="img " src="images/roomchoice/u10.png"/>
+  </div>
+
+  <!-- Unnamed (Shape) -->
+  <div id="u11" class="ax_default arrow">
+    <img id="u11_img" class="img " src="images/roomchoice/u10.png"/>
+  </div>
+
+  <!-- Unnamed (Shape) -->
+  <div id="u12" class="ax_default arrow">
+    <img id="u12_img" class="img " src="images/roomchoice/u10.png"/>
+  </div>
+
+  <!-- Unnamed (Shape) -->
+  <div id="u13" class="ax_default arrow">
+    <img id="u13_img" class="img " src="images/roomchoice/u10.png"/>
+  </div>
+
+  <!-- Unnamed (Shape) -->
+  <div id="u14" class="ax_default arrow">
+    <img id="u14_img" class="img " src="images/roomchoice/u10.png"/>
+  </div>
+
+  <!-- Unnamed (Shape) -->
+  <div id="u15" class="ax_default arrow">
+    <img id="u15_img" class="img " src="images/roomchoice/u10.png"/>
+  </div>
+
+  <!-- Unnamed (Shape) -->
+  <div id="u16" class="ax_default icon">
+    <img id="u16_img" class="img " src="images/roomchoice/u16.png" onclick="back()"/>
+  </div>
+</div>
+
+<script type="text/javascript" src="lib/jquery/3.4.1/jquery-3.4.1.js"></script>
+<script>
+  function Ajax(obj) {
+    var id = obj.id;
+    var roomName= document.getElementById(id).innerHTML;
+    $.ajax({
+      type: "post",
+      url: "addRoomName.do",
+      data: {
+        room:roomName,
+      },
+      dataType: "text",           //预期服务器返回String类型数据
+      success: function (resp) {
+        if(resp == "yes")
+          window.location.href="ticket.html";
+        else
+          alert("Something wrong");
+      },
+      error: function (resp) {
+        alert("Failed");
+      }
+    });
+  }
+
+  var back = function () {
+    window.location.href="id_input.html";
+  }
+
+</script>
+</body>
+</html>

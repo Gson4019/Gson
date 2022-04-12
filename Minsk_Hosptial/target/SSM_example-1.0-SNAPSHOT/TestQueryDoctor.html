@@ -1,0 +1,51 @@
+<html>
+<head>
+  <title>查询医生信息</title>
+  <base href="<%=basePath%>">
+  <script type="text/javascript" src="lib/jquery/3.4.1/jquery-3.4.1.js"></script>
+  <script>
+    function Ajax() {
+      var MyDno = document.getElementById("Dno").value;
+      $.ajax({
+        type: "get",
+        url: "doctor/selectDoctorByDno.do",
+        dataType: "json",           //预期服务器返回json类型数据
+        data: {
+          Dno: MyDno,
+        },
+        success: function (res) {
+          dataManage(res);
+        },
+        error: function (res) {
+          alert('failed!');
+        }
+      });
+    }
+
+      //定义函数，用于处理服务端返回的数据
+      function dataManage(jsonObj) {
+        //div标签用innerText, input标签用value
+        document.getElementById("name").innerText = jsonObj.dname;       //数据库中查到的对象属性名称都是小写的，不能大写
+        document.getElementById("sex").innerText = jsonObj.dsex;
+        document.getElementById("Dmajor").innerText = jsonObj.major;
+        document.getElementById("telephone").innerText = jsonObj.telephone;
+      }
+  </script>
+</head>
+<body>
+<br/>
+<div type="text" id="name">name</div>
+<br/>
+<div type="text" id="sex">sex</div>
+<br/>
+<div type="text" id="Dmajor">major</div>
+<br/>
+<div type="text" id="telephone">telephone</div>
+<br/>
+<div>
+  Dno:<input type="text" id="Dno">
+  <input type="button" onclick="Ajax()" value="Search">
+</div>
+
+</body>
+</html>

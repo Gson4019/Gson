@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>upload result</title>
+    <style>
+        #Time,#p{
+            font-size: 150px;
+            text-align: center;
+        }
+        #Font,#p{
+            font-size: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<font color="#87ceeb"><p id="Time" >3</p></font>
+<div id="result" align="center"><h1>Upload successfully! You can back to print your Queue_ticket</h1></div>
+</body>
+<script type="text/javascript" src="lib/jquery/3.4.1/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    function countDown(){
+        //获取初始时间
+        var time = document.getElementById("Time");
+
+        //获取到id为time标签中的数字时间
+        if(time.innerHTML == 0){
+            //等于0时清除计时，并跳转该指定页面
+            window.location.href="ticket.html";
+        }else{
+            time.innerHTML = time.innerHTML-1;
+        }
+    }
+    //1000毫秒调用一次
+    window.setInterval("countDown()",1000);
+
+</script>
+</html>

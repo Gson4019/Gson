@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+          ">
+
+    <!-- 使用redisTemplate操作数据库对象 -->
+    <bean id="redisTemplate"
+          class="org.springframework.data.redis.core.RedisTemplate">
+        <!-- 因为需要使用jedis连接数据库，所以我们需要一个工厂对数据库进行连接
+            进入该类>找到该类的父类，父类有构造方法，方法里有connectionFactory，底层还是需要这个工厂连接数据库
+            keySerializer实现键的序列化 点进去查看类 因为对key不要求选择String的
+            valueSerializer实现值的序列化，选择General
+        -->
+        <property name="connectionFactory" ref="connectionFactory"></property>
+        <property name="keySerializer" ref="keySerializer"></property>
+        <property name="valueSerializer" ref="valueSerializer"></property>
+    </bean>
+
+    <!-- 通过工厂连接数据库 -->
+    <bean id="connectionFactory"
+          class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory">
+        <property name="hostName" value="192.168.224.11"></property>
+        <property name="port" value="6379"></property>
+    </bean>
+
+    <!-- 键与值都是通过无参构造方法对其进行连接 -->
+    <bean id="keySerializer"
+          class="org.springframework.data.redis.serializer.StringRedisSerializer"></bean>
+
+    <bean id="valueSerializer"
+          class="org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer"></bean>
+</beans>

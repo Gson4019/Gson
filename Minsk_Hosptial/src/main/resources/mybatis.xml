@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <!--entity包中的类名就是别名-->
+        <package name="entity"/>
+    </typeAliases>
+
+    <!--指定其他mapper文件的位置，作用是找到其他文件的sql语句
+    -->
+    <mappers>
+        <!--加载dao包中的所有mapper文件-->
+        <package name="dao"/>
+    </mappers>
+</configuration>

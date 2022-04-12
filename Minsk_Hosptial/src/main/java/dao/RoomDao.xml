@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.RoomDao">
+    <insert id="insertRoom" useGeneratedKeys="true" keyProperty="Rno">
+        insert into room(Rname,BeginTime,EndTime,respon_person) values(#{Rname},#{BeginTime},#{EndTime},#{respon_person})
+    </insert>
+
+    <select id="queryRoomByRno" resultType="entity.Room">
+        select * from room where Rno = #{Rno}
+    </select>
+
+
+</mapper>

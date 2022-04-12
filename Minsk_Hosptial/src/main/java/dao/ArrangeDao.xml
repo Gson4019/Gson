@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.ArrangeDao">
+    <select id="queryWorkArrangeByWeekNum" resultType="entity.Workarrange">
+        select * from workarrange where WeekNum = #{WeekNum}
+    </select>
+
+    <insert id="AddWork" useGeneratedKeys="true" keyProperty="Wno">
+        insert into workarrange values(#{Dno},#{Rno},#{Dname},#{Rname},#{BeginTime},#{EndTime},#{WeekNum})
+    </insert>
+
+
+</mapper>

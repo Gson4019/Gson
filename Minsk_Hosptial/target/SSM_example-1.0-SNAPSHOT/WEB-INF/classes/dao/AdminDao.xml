@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.AdminDao">
+    <!--使用insert、update、delete、select标签写sql语句-->
+    <insert id="insertDoctor" useGeneratedKeys="true" keyProperty="Dno">
+        insert into doctor(Dname,Dsex,major,telephone,account,password)
+        values(#{Dname},#{Dsex},#{major},#{telephone},#{account},#{password})
+
+        insert into account(account,password) values(#{account},#{password})
+    </insert>
+
+    <delete id="deleteDoctor">
+        delete from doctor where Dno = #{Dno}
+        delete from account where account = #{account}
+    </delete>
+
+    <select id="queryDoctorByDno" resultType="entity.Doctor">
+        select * from doctor where Dno = #{Dno}
+    </select>
+
+</mapper>

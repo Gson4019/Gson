@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>ID_input</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
+    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
+    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
+    <link href="files/id_input/styles.css" type="text/css" rel="stylesheet"/>
+    <style>
+      button {
+        position: relative;
+        margin: 0 45px;
+        color: #111;
+        text-decoration: none;
+        font-size: 20px;
+        text-transform: uppercase;
+        transition: 0.5s;
+        overflow: hidden;
+      }
+
+      button:hover {
+        background: #21ebff;
+        color: #fff;
+        box-shadow: 0 0 50px #21ebff;
+        transition-delay: 0.5s;
+      }
+
+      button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-top: 2px solid #21ebff;
+        border-left: 2px solid #21ebff;
+        transition: 0.5s;
+        transition-delay: 0.5s;
+      }
+
+      button:hover::before {
+        width: 100%;
+        height: 100%;
+        transition-delay: 0s;
+      }
+
+      button::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 10px;
+        height: 10px;
+        border-bottom: 2px solid #21ebff;
+        border-right: 2px solid #21ebff;
+        transition: 0.5s;
+        transition-delay: 0.5s;
+      }
+
+      button:hover::after {
+        width: 100%;
+        height: 100%;
+        transition-delay: 0s;
+      }
+
+    </style>
+  </head>
+  <body>
+  <form action="addPatient.do" method="post">
+    <div id="base" class="">
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u17" class="ax_default box_1">
+        <img id="u17_img" class="img " src="images/id_input/u17.png"/>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u18" class="ax_default heading_1">
+        <img id="u18_img" class="img " src="images/id_input/u18.png"/>
+        <div id="u18_text" class="text ">
+          <p><span>Personal information</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u19" class="ax_default box_2">
+        <img id="u19_img" class="img " src="images/id_input/u19.png"/>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u20" class="ax_default heading_3">
+        <img id="u20_img" class="img " src="images/id_input/u20.png"/>
+        <div id="u20_text" class="text ">
+          <p><span>Type</span></p>
+        </div>
+      </div>
+
+      <!-- Pkind (Radio Button) -->
+      <div id="u21" class="ax_default radio_button">
+        <label for="u21_input" style="position: absolute; left: 0px;">
+          <div id="u21_text" class="text ">
+            <p><span>Common</span></p>
+          </div>
+        </label>
+        <input id="u21_input" type="radio" value="Common" name="Pkind" checked/>
+      </div>
+
+      <!-- Pkind (Radio Button) -->
+      <div id="u22" class="ax_default radio_button">
+        <label for="u22_input" style="position: absolute; left: 0px;">
+          <div id="u22_text" class="text ">
+            <p><span>Emergency</span></p>
+          </div>
+        </label>
+        <input id="u22_input" type="radio" value="Emergency" name="Pkind"/>
+      </div>
+
+      <!-- Pname (Text Field) -->
+      <div id="u23" class="ax_default text_field">
+        <img id="u23_image_sketch" class="img " src="images/id_input/u23_image_sketch.png" alt="u23_image_sketch"/>
+        <input id="u23_input" type="text" value="" class="form_sketch" name="Pname"/>
+      </div>
+
+      <!-- Gender input frame (Text Field) -->
+      <div id="u24" class="ax_default text_field">
+        <img id="u24_image_sketch" class="img " src="images/id_input/u23_image_sketch.png" alt="u24_image_sketch"/>
+        <input id="u24_input" type="text" value="" class="form_sketch" disabled/>
+      </div>
+
+      <!-- Page (Text Field) -->
+      <div id="u25" class="ax_default text_field">
+        <img id="u25_image_sketch" class="img " src="images/id_input/u23_image_sketch.png" alt="u25_image_sketch"/>
+        <input id="u25_input" type="text" value="" class="form_sketch" name="Page"/>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u26" class="ax_default heading_3">
+        <img id="u26_img" class="img " src="images/id_input/u26.png"/>
+        <div id="u26_text" class="text">
+          <p><span>Name：</span></p>
+        </div>
+      </div>
+
+      <!-- Unnamed (Rectangle) -->
+      <div id="u27" class="ax_default heading_3">
+        <img id="u27_img" class="img " src="images/id_input/u27.png"/>
+        <div id="u27_text" class="text ">
+          <p><span>Gender：</span></p>
+        </div>
+      </div>
+
+      <div id="u28" class="ax_default heading_3">
+        <img id="u28_img" class="img " src="images/id_input/u28.png"/>
+        <div id="u28_text" class="text">
+          <p><span>Age：</span></p>
+        </div>
+      </div>
+
+      <!-- submit Button -->
+      <div id="u29">
+        <button id="u29_text" class="text" type="submit" value="Confirm">
+          <p align="center">Confirm</p>
+        </button>
+      </div>
+
+      <!-- Psex (Radio Button) -->
+      <div id="u30" class="ax_default radio_button">
+        <label for="u30_input" style="position: absolute; left: 0px;">
+          <div id="u30_text" class="text ">
+            <p><span>Male</span></p>
+          </div>
+        </label>
+        <input id="u30_input" type="radio" value="Male" name="Psex" checked/>
+      </div>
+
+      <!-- Psex (Radio Button) -->
+      <div id="u31" class="ax_default radio_button">
+        <label for="u31_input" style="position: absolute; left: 0px;">
+          <div id="u31_text" class="text ">
+            <p><span>Female</span></p>
+          </div>
+        </label>
+        <input id="u31_input" type="radio" value="Female" name="Psex"/>
+      </div>
+
+      <!-- Unnamed (Shape) -->
+      <div id="u32" class="ax_default icon">
+        <img id="u32_img" class="img" onclick="back()" src="images/roomchoice/u16.png"/>
+      </div>
+    </div>
+  </form>
+
+  <script>
+    var back = function () {
+      window.location.href="start.html";
+    }
+  </script>
+  </body>
+</html>

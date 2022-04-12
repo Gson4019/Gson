@@ -1,0 +1,285 @@
+/*总一*/
+#total1
+{
+    margin: 0 auto;
+    width: 95%;            /*1240*/
+    border-top: 5px solid #F0F2F5;
+    border-bottom: 50px solid #F0F2F5;
+    border-left: 1px solid #F0F2F5;
+    border-right: 1px solid #F0F2F5;
+    display: block;
+}
+.daohang{
+	
+}
+/*头*/
+.top
+{
+    height: 35px;
+    border-bottom: 1px solid #F0F2F5;
+    padding-left: 25px;
+    padding-top: 15px;
+    /*border: solid;*/
+}
+/*主体*/
+.main
+{
+    padding-top: 15px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 30px;
+}
+/*多选（模板名称……）*/
+.sel
+{
+    color: darkslategrey;
+    padding-left: 10px;
+    padding-top: 5px;
+    height: 35px;
+    width: 140px;
+    background-color: #F0F2F5;
+    border-radius: 5px 0px 0px 5px;
+    border: 1px solid lightgrey;
+}
+/*多选之后的那个输入框*/
+.inp
+{
+    margin-left: 0px;
+    padding-left: 10px;
+    padding-top: 5px;
+    height: 27px;
+    width: 180px;
+    border: 1px solid lightgrey;
+    margin-bottom: 15px;
+}
+/*那个蓝色的Q*/
+#qstnMark
+{
+    height: 36px;
+    width: 55px;
+    display: inline-block;
+    background-color: #5899ce;
+    color: white;
+    padding-top: 4px;
+    padding-bottom: 2px;
+    margin-left: -8px;
+    border-radius: 0px 5px 5px 0px;
+    border: 1px solid lightgrey;
+    text-align: center;
+    font-family: 'Calibri Light';
+    font-weight: lighter;
+}
+/*新增模板文件按钮*/
+#addTmplFile
+{
+    float: right;
+    color: white;
+    padding-left: 10px;
+    padding-top: 5px;
+    height: 35px;
+    width: 120px;
+    background-color: #5899ce;
+    border-radius: 5px;
+    border: none;
+}
+/*第一张表*/
+#table1
+{
+    border: 1px lightgrey solid;
+    width: 100%;            /*1235*/
+}
+
+#table2
+{
+    border: 1px lightgrey solid;
+    width: 600px;
+}
+/*表头*/
+.tableTitle
+{
+    background-color: lightsteelblue;
+    font-weight: bold;
+}
+/*第一张表中的单元格格式*/
+#table1 td
+{
+    height: 35px;
+    border: 1px lightgrey solid;
+}
+/*第一列格式*/
+.col1
+{
+    width: 100px;
+}
+/*第二列格式*/
+.col2
+{
+    width: 100px;
+}
+/*第三列格式*/
+.col3
+{
+    width: 100px;
+}
+/*第四列格式*/
+.col4
+{
+    width: 100px;
+}
+/*第五列格式*/
+.col5
+{
+    width: 100px;
+}
+
+.col6
+{
+    width: 100px;
+    height:60px;
+}
+/*第二列格式*/
+.col7
+{
+    width: 100px;
+    height:60px;
+}
+/*第三列格式*/
+.col8
+{
+    width: 80px;
+    height:60px;
+}
+/*第四列格式*/
+.col9
+{
+    width: 80px;
+    height:60px;
+}
+/*第一张表中最下面的表格导航*/
+#lowerLbl
+{
+    padding-top: 30px;
+}
+/*第一张表中最下面的表格导航中的p的格式*/
+#lowerLbl p
+{
+    color: gray;
+    display: inline;
+}
+#lowerLbl select
+{
+    color: gray;
+    height: 25px;
+    width: 80px;
+    border-radius: 5px;
+    padding-left: 5px;
+    margin-left: 5px;
+}
+#lowerLbl button
+{
+    width: 25px;
+    height: 25px;
+    background-color: #F0F2F5;
+    color: gray;
+    padding-top: 2px;
+    border-radius: 5px;
+    border: none;
+}
+#lowerLbl input
+{
+    padding-top: 2px;
+    width: 35px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    text-align: center;
+}
+
+/*总二*/
+#total2
+{
+    margin: 0 auto;
+    width: 1400px;
+    border-top: 5px solid #F0F2F5;
+    border-bottom: 50px solid #F0F2F5;
+    border-left: 1px solid #F0F2F5;
+    border-right: 1px solid #F0F2F5;
+    display: none;
+}
+/*第二张表*/
+#table2
+{
+    border: none;
+    width: 1200px;
+}
+/*第二张表的行格式*/
+.table2Tr
+{
+    margin: 15px;
+    padding-top: 50px;
+}
+/*第二张表的第一种单元格格式*/
+.table2Td1
+{
+    width: 120px;
+    /*border: solid;*/
+    color: darkslategrey;
+}
+/*第二张表的第二种单元格格式*/
+.table2Td2
+{
+    width: 430px;
+    padding-left: 5px;
+    /*border: solid;*/
+}
+/*第二张表的第三种单元格格式*/
+.table2Td3
+{
+    padding-left: 5px;
+}
+/*第二张表中的输入框格式*/
+#table2 input
+{
+    width: 420px;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    padding-left: 15px;
+}
+/*第二张表中的p（段落）的格式*/
+#table2 p
+{
+    color: red;
+    display: inline;
+}
+/*提交的那个按钮*/
+#submit1
+{
+    height: 35px;
+    width: 80px;
+    border-radius: 5px;
+    color: white;
+    background-color: #5899ce;
+}
+#submit2
+{
+    height: 35px;
+    width: 80px;
+    border-radius: 5px;
+    color: white;
+    background-color: #5899ce;
+}
+/*编辑按钮*/
+#btn1
+{
+    color: blue;
+    background-color: white;
+    border: none;
+}
+/*删除按钮*/
+#btn2
+{
+    color: red;
+    background-color: white;
+    border: none;
+}

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="multipart/form-data;charset=utf-8" />
+    <title>Condition Decription</title>
+    <style>
+        #image-preview {
+            border: 1px solid #ccc;
+            width: 100%;
+            height: 100%;
+            max-width: 270px;
+            max-height: 270px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        label {
+            display: inline-block;
+            width: 160px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: skyblue;
+            font-size: 18px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[id=file] {
+            margin-left: -2000px;
+            height: 0;
+        }
+
+        button {
+            position: relative;
+            margin: 0 45px;
+            color: #111;
+            text-decoration: none;
+            font-size: 20px;
+            text-transform: uppercase;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+
+        button:hover {
+            background: #21ebff;
+            color: #fff;
+            box-shadow: 0 0 50px #21ebff;
+            transition-delay: 0.5s;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid #21ebff;
+            border-left: 2px solid #21ebff;
+            transition: 0.5s;
+            transition-delay: 0.5s;
+        }
+
+        button:hover::before {
+            width: 100%;
+            height: 100%;
+            transition-delay: 0s;
+        }
+
+        button::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 10px;
+            height: 10px;
+            border-bottom: 2px solid #21ebff;
+            border-right: 2px solid #21ebff;
+            transition: 0.5s;
+            transition-delay: 0.5s;
+        }
+
+        button:hover::after {
+            width: 100%;
+            height: 100%;
+            transition-delay: 0s;
+        }
+
+        textarea {
+            background: transparent;
+            font-size: 20px;
+            text-indent: 50px;
+        }
+
+        .bubble{
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid red;   /* #fff */
+            box-shadow: inset 0 0 8px  red;
+            animation: flutter 10s infinite;
+            opacity: 0;
+        }
+
+        @keyframes flutter {
+            0%{
+                transform: translateX(0);
+                bottom: -100px;
+                opacity: 1;
+            }
+            50%{
+                transform: translateX(100px);
+                opacity: 0.5;
+            }
+
+
+            100%{
+                transform: translateX(0px);
+                bottom: 100%;
+                opacity: 0;
+
+            }
+        }
+
+        .bubble:nth-child(1){
+            left: -10%;
+            width: 50px;
+            height: 50px;
+            animation-duration: 9s;
+            animation-delay: 0.1s;
+        }
+        .bubble:nth-child(2){
+            left: 15%;
+            width: 20px;
+            height: 20px;
+            animation-duration: 6s;
+            animation-delay: 1.5s;
+
+        }
+        .bubble:nth-child(3){
+            left: 20%;
+            width: 60px;
+            height: 60px;
+            animation-duration: 10s;
+
+
+
+        }
+        .bubble:nth-child(4){
+            left: 30%;
+            width: 30px;
+            height: 30px;
+            animation-duration: 5.5s;
+            animation-delay: 1.5s;
+
+        }
+        .bubble:nth-child(5){
+            left: 40px;
+            width: 50px;
+            height: 50px;
+            animation-duration: 12s;
+        }
+        .bubble:nth-child(6){
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            animation-duration: 6s;
+            animation-delay: 1s;
+
+        }
+        .bubble:nth-child(7){
+            left: 60%;
+            width: 40px;
+            height: 40px;
+            animation-duration: 8s;
+            animation-delay: 1s;
+
+        }
+        .bubble:nth-child(8){
+            left: 65%;
+            width: 60px;
+            height: 60px;
+            animation-duration: 15s;
+
+        }
+        .bubble:nth-child(9){
+            left: 80%;
+            width: 55px;
+            height: 55px;
+            animation-duration: 9s;
+            animation-delay: 0.5s;
+
+        }
+        .bubble:nth-child(10){
+            left: 100%;
+            width: 40px;
+            height: 40px;
+            animation-duration: 12s;
+
+        }
+
+    </style>
+</head>
+<body background="images/bg/bg.png">
+<!--<div>-->
+<!--    <div class="bubble"></div>-->
+<!--    <div class="bubble"></div>-->
+<!--    <div class="bubble"></div>-->
+<!--    <div class="bubble"></div>-->
+<!--    <div class="bubble"></div>-->
+<!--    <div class="bubble"></div>-->
+<!--    <div class="bubble"></div>-->
+<!--    <div class="bubble"></div>-->
+<!--    <div class="bubble"></div>-->
+<!--    <div class="bubble"></div>-->
+<!--</div>-->
+
+<form action="add_Picture_Description.do" method="post" enctype="multipart/form-data">
+    <h2>Upload picture of your condition</h2>
+    <img id="image-preview">
+    <p>
+        <label for="file" id="upFile">Uplode picture</label>
+        <input type="file" id="file" name="upload_image" accept="image/gif, image/jpeg, image/png, image/jpg">
+    </p>
+    <p id="info"></p>
+
+<table align="center" style="position: relative;width: 100%">
+    <thead>
+    <tr>
+        <th><h2>Condition Description</h2></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td><textarea style="position: relative;width: 100%;" rows="15" required="required" id="description"
+                      name='description' placeholder="input description here...."></textarea></td>
+    </tr>
+    </tbody>
+</table>
+
+<div align="center">
+    <button type="submit" value="Confirm" id="confirm" onclick="confirm()">
+        <p align="center">Confirm</p>
+    </button>
+    <button value="back" onclick="back()">
+        <p align="center">&nbsp;&nbsp;&nbsp;Back&nbsp;&nbsp;&nbsp;</p>
+    </button>
+</div>
+</form>
+
+</body>
+<script type="text/javascript" src="lib/jquery/3.4.1/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    let fileInput = document.getElementById('file');
+    let info = document.getElementById('info');
+    let preview = document.getElementById('image-preview');
+    // 监听change事件:
+    fileInput.addEventListener('change', function () {
+        // 清除背景图片:
+        preview.style.backgroundImage = '';
+        if (!fileInput.value) {
+            info.innerHTML = 'You have not choose picture '
+            return;
+        }
+        let file = fileInput.files[0];
+        let size = file.size;
+        if (size >= 16 * 1024 * 1024) {
+            alert('The size of file exceed the limit');
+            info.innerHTML = 'The size of file exceed the limit';
+            return false;
+        }
+        if (!['image/jpeg', 'image/png', 'image/gif'].includes(file.type)) {
+            alert('The size of file is invalid!');
+            return;
+        }
+        // 读取文件:
+        let reader = new FileReader();
+        reader.onload = function (e) {
+            let data = e.target.result;
+            console.log(preview, 'a Label')
+            preview.src = data
+        };
+        // 以DataURL的形式读取文件:
+        reader.readAsDataURL(file);
+    });
+
+    var data = new FormData();
+
+    $("#file").change(function(){
+        var file = this.files[0];
+
+        //judge whether the file is picture
+        if(!/image\/\w+/.test(file.type)){
+            alert("please make sure your file format belongs to picture");
+            return false;
+        }
+        data.set("picture",file);
+    });
+
+
+    function back() {
+        window.location.href = "ticket.html";
+    }
+
+
+</script>
+</html>

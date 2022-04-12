@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AliPay</title>
+    <style>
+        #image {
+            border: 3px solid #ccc;
+            max-width: 480px;
+            max-height: 650px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    </style>
+</head>
+<body background="images/bg/bg.png">
+<div align="center">
+<img id="image" src="images/pay/pay.jpg">
+</div>
+</body>
+<script type="text/javascript" src="lib/jquery/3.4.1/jquery-3.4.1.js"></script>
+<script type="text/javascript">
+    var time = 10;
+
+    $(function () {
+        //1000毫秒调用一次
+        window.setInterval("turn()",1000);
+    })
+
+    var turn = function(){
+        if(time == 0)
+            window.location.href="start.html";
+        else
+            time = time-1;
+        }
+
+</script>
+</html>

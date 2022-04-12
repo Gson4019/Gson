@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Queue List</title>
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Custom Theme Style -->
+    <link href="build/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<!-- page content -->
+<div class="col-md-12 col-sm-12  ">
+    <div class="x_panel">
+        <div class="x_title">
+            <h1 align="center">Waiting Queue List</h1>
+            <div class="clearfix"></div>
+        </div>
+        <h2 id="current_time" align="right" style="color: black"></h2>
+
+        <div class="x_content">
+
+            <div class="table-responsive">
+                <table class="table table-striped jambo_table bulk_action">
+                    <thead>
+                    <tr class="headings">
+                        <th class="column-title"></th>
+                        <th class="column-title">Queue Number</th>
+                        <th class="column-title">Name</th>
+                        <th class="column-title">Gender</th>
+                        <th class="column-title">Type</th>
+                        <th class="column-title">Department</th>
+                        <th class="column-title">Status</th>
+                        <th class="column-title no-link last"></th>
+                    </tr>
+                    </thead>
+
+                    <tbody id="PatientsInfo">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div align="center">
+            <button id="back" class="btn btn-success radius size-L">&nbsp;Back&nbsp;</button>
+        </div>
+
+    </div>
+</div>
+<!-- /page content -->
+
+<script src="lib/jquery/3.4.1/jquery-3.4.1.js" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        getQueueList();
+        getTime();
+        //Refresh the local page in 5s
+        setInterval(getQueueList,5000);
+
+        setInterval(getTime,1000);
+
+        $("#back").click(function () {
+            window.location.href = "start.html";
+        })
+    })
+
+    function getTime(){
+        var now = (new Date()).toLocaleString();
+        $('#current_time').html(now);
+    }
+
+    function getQueueList() {
+        $.ajax({
+            url: "queryPatients.do",
+            dataType: "json",
+            success: function (resp) {
+                $("#PatientsInfo").empty();
+                $.each(resp, function (i, n) {
+                    $("#PatientsInfo").append("<tr class=\"even pointer\">" +
+                        "<td>" +"</td>" +
+                        "<td>" + n.queueNum + "</td>" +
+                        "<td>" + n.pname + "</td>" +
+                        "<td>" + n.psex + "</td>" +
+                        "<td>" + n.pkind + "</td>" +
+                        "<td>" + n.roomName + "</td>" +
+                        "<td>" + n.status + "</td>" +
+                        "<td>" + "</td>" +
+                        "</tr>")
+                })
+            }
+        })
+    }
+
+</script>
+</body>
+</html>
